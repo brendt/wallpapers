@@ -1,19 +1,55 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./wallpaper.css" />
         <style>
-            body {
-                background:#1695A3;
+           body {
+                background:#01FF46;
+                padding:0;
+                margin: 0;
+                position: relative;
             }
             pre {
-                color:#fff;
+                font-family: Monaco, monospace;
+                color:#000;
+                font-size:1.1em;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -60%);
             }
         </style>
     </head>
     <body>
 <pre>
-&lt;html&gt;
-     &lt;/html&gt;
+.jonas {
+    position: statik;
+}
 </pre>
     </body>
+<script type="text/javascript">
+
+    var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+    var colorCode = '#';
+    var char;
+    var darkCounter = 0;
+    var darkValue = 0;
+
+    for (var i = 0; i < 6; i++) {
+        if (i % 2 !== 0) {
+            darkValue = 0;
+        }
+        char = Math.floor(Math.random() * 16);
+        darkValue += char;
+        if (i % 2 === 0 && darkValue > 15) {
+            darkCounter++;
+        }
+        colorCode += chars[char];
+    }
+
+    var bodyStyle = 'background-color: ' + colorCode + '; color: #';
+
+    var preStyle = 'color: #' + ((darkCounter > 1) ? '000;' : 'fff;');
+
+    document.querySelector('body').style = bodyStyle;
+    document.querySelector('pre').style = preStyle;
+</script>
 </html>
